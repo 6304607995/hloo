@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix Multiplication</title>
+</head>
+<body>
+    <h1>Matrix Multiplication</h1>
+
+    <script>
+        // Define two matrices as 2D arrays
+        var matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        var matrix2 = [[9, 8, 7], [6, 5, 4], [3, 2, 1]];
+
+        // Function to multiply two matrices
+        function multiplyMatrices(matrix1, matrix2) {
+            var result = [];
+
+            // Check if the matrices can be multiplied (dimensions must match)
+            if (matrix1[0].length !== matrix2.length) {
+                return null; // Matrices cannot be multiplied
+            }
+
+            // Initialize the result matrix with zeros
+            for (var i = 0; i < matrix1.length; i++) {
+                result[i] = [];
+                for (var j = 0; j < matrix2[0].length; j++) {
+                    result[i][j] = 0;
+                }
+            }
+
+            // Perform matrix multiplication
+            for (var i = 0; i < matrix1.length; i++) {
+                for (var j = 0; j < matrix2[0].length; j++) {
+                    for (var k = 0; k < matrix2.length; k++) {
+                        result[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        // Perform matrix multiplication
+        var resultMatrix = multiplyMatrices(matrix1, matrix2);
+
+        // Display the result matrix
+        if (resultMatrix) {
+            document.write("<p>Matrix 1:</p>");
+            displayMatrix(matrix1);
+
+            document.write("<p>Matrix 2:</p>");
+            displayMatrix(matrix2);
+
+            document.write("<p>Matrix Multiplication Result:</p>");
+            displayMatrix(resultMatrix);
+        } else {
+            document.write("<p>Matrices cannot be multiplied. Invalid dimensions.</p>");
+        }
+
+        // Function to display a matrix
+        function displayMatrix(matrix) {
+            document.write("<table border='1'>");
+            for (var i = 0; i < matrix.length; i++) {
+                document.write("<tr>");
+                for (var j = 0; j < matrix[i].length; j++) {
+                    document.write("<td>" + matrix[i][j] + "</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+</body>
+</html>

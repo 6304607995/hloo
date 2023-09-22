@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix Addition</title>
+</head>
+<body>
+    <h1>Matrix Addition</h1>
+
+    <script>
+        // Define two matrices as 2D arrays
+        var matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        var matrix2 = [[9, 8, 7], [6, 5, 4], [3, 2, 1]];
+
+        // Function to add two matrices
+        function addMatrices(matrix1, matrix2) {
+            var result = [];
+
+            // Check if the matrices have the same dimensions
+            if (matrix1.length !== matrix2.length || matrix1[0].length !== matrix2[0].length) {
+                return null; // Matrices cannot be added
+            }
+
+            // Iterate through the matrices and add corresponding elements
+            for (var i = 0; i < matrix1.length; i++) {
+                var row = [];
+                for (var j = 0; j < matrix1[i].length; j++) {
+                    row.push(matrix1[i][j] + matrix2[i][j]);
+                }
+                result.push(row);
+            }
+
+            return result;
+        }
+
+        // Perform matrix addition
+        var resultMatrix = addMatrices(matrix1, matrix2);
+
+        // Display the result matrix
+        if (resultMatrix) {
+            document.write("<p>Matrix 1:</p>");
+            displayMatrix(matrix1);
+
+            document.write("<p>Matrix 2:</p>");
+            displayMatrix(matrix2);
+
+            document.write("<p>Matrix Addition Result:</p>");
+            displayMatrix(resultMatrix);
+        } else {
+            document.write("<p>Matrices cannot be added. They have different dimensions.</p>");
+        }
+
+        // Function to display a matrix
+        function displayMatrix(matrix) {
+            document.write("<table border='1'>");
+            for (var i = 0; i < matrix.length; i++) {
+                document.write("<tr>");
+                for (var j = 0; j < matrix[i].length; j++) {
+                    document.write("<td>" + matrix[i][j] + "</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
+</body>
+</html>

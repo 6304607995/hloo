@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>var userData = prompt("Enter any text here").toLowerCase();
+    var a = 0;
+    var e = 0;
+    var i = 0;
+    var o = 0;
+    var u = 0;
+    var consonants = 0;
+    var count;
+    
+    for (count = 0; count < userData.length; count++){
+        var char = userData.charAt(count);
+        if(char.match(/[aeiou]/)){
+            switch (char) {
+                case 'a':
+                    a++;
+                    break;
+                case 'e':
+                    e++;
+                    break;
+                case 'i':
+                    i++;
+                    break;
+                case 'o':
+                o++;
+                break;
+            case 'u':
+                u++;
+                break;
+        }
+    } else if(char.match(/[bcdfghjklmnpqrstvwxyz]/)) {
+        consonants++;
+    }
+}
+
+console.log ("a: " + a);
+console.log ("e: " + e);
+console.log ("i: " + i);
+console.log ("o: " + o);
+console.log ("u: " + u);
+console.log ("consonants: " + consonants);    
+</script>
+</html>

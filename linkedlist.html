@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked List Example</title>
+</head>
+<body>
+    <h1>Linked List Example</h1>
+    <button onclick="appendNode()">Append Node</button>
+    <button onclick="displayList()">Display List</button>
+    <div id="linked-list">
+        <!-- Linked list nodes will be displayed here -->
+    </div>
+
+    <script>
+        // Define the Node class
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+        // Initialize the head of the linked list
+        let head = null;
+
+        // Function to append a new node to the linked list
+        function appendNode() {
+            const data = prompt("Enter data for the new node:");
+            const newNode = new Node(data);
+
+            if (!head) {
+                head = newNode;
+            } else {
+                let current = head;
+                while (current.next) {
+                    current = current.next;
+                }
+                current.next = newNode;
+            }
+        }
+
+        // Function to display the linked list
+        function displayList() {
+            let current = head;
+            let linkedListDiv = document.getElementById("linked-list");
+            linkedListDiv.innerHTML = "";
+
+            while (current) {
+                const nodeDiv = document.createElement("div");
+                nodeDiv.textContent = current.data;
+                linkedListDiv.appendChild(nodeDiv);
+                current = current.next;
+            }
+        }
+    </script>
+</body>
+</html>

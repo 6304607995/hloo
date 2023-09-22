@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copy Array Elements</title>
+</head>
+<body>
+    <h1>Copy Array Elements</h1>
+
+    <script>
+        // Define two arrays
+        var sourceArray = [1, 2, 3, 4, 5];
+        var destinationArray = [];
+
+        // Copy elements from sourceArray to destinationArray
+        for (var i = 0; i < sourceArray.length; i++) {
+            destinationArray[i] = sourceArray[i];
+        }
+
+        // Display the copied elements
+        document.write("<p>Source Array: " + sourceArray.join(", ") + "</p>");
+        document.write("<p>Destination Array: " + destinationArray.join(", ") + "</p>");
+    </script>
+</body>
+</html>
